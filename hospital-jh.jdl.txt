@@ -1,0 +1,80 @@
+
+entity Rendez_vous {
+ nom String required minlength(2)
+ prenom String required minlength(2)
+ cni String required minlength(13) maxlength(13)
+ date Date required
+ heure String required
+ departement String required minlength(2)
+ service String required minlength(2)
+}
+
+entity Service {
+ libelle String required minlength(2)
+}
+
+entity Departement {
+ libelle String required minlength(2)
+}
+
+entity Antécédents {
+  antecedentsMedicaux minlength(2)
+  antecedentsChirurgicaux minlength(2)
+  antécédentsFamiliaux minlength(2)
+  allergiesIntolerance minlength(2)
+  cni String required minlength(13) maxlength(13)
+}
+
+entity HistoriqueConsultations {
+ 
+  date Date
+  acte String
+  motif String
+  taille Double
+  poids Double
+  t_a Double
+  pouls Int
+  observation String
+  a_t String
+  cni String required minlength(13) maxlength(13)
+}
+
+entity Ordonnances {
+  date Date
+  categorie String
+  prescription String
+  cni String required minlength(13) maxlength(13)
+}
+
+entity Vaccinations {
+  date Date
+  vaccin String
+  injection String
+  methode String
+  lot String
+  resultat String
+  rappel Date
+  cni String required minlength(13) maxlength(13)
+}
+
+entity ExamensBiologiques {
+  date Date
+  texte String
+  cni String required minlength(13) maxlength(13)
+}
+
+entity Planification {
+  prevuLe Date
+  objet String
+  faitLe Date
+  periodicite String
+  resultat String
+  cni String required minlength(13) maxlength(13)
+}
+
+relationship ManyToOne {
+  Rendez_vous{service(id)} to Service
+  Service{departement(id)} to Departement
+}
+
+paginate Rendez_vous with infinite-scroll
