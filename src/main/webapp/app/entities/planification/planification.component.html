@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalApp.planification.home.title">Planifications</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-planification" [routerLink]="['/planification/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalApp.planification.home.createLabel">
+            Create a new Planification
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="planifications?.length === 0">
+        <span jhiTranslate="hospitalApp.planification.home.notFound">No planifications found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="planifications && planifications.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.prevuLe">Prevu Le</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.objet">Objet</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.faitLe">Fait Le</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.periodicite">Periodicite</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.resultat">Resultat</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.planification.user">User</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let planification of planifications ;trackBy: trackId">
+                    <td><a [routerLink]="['/planification', planification.id, 'view']">{{ planification.id }}</a></td>
+                    <td>{{ planification.prevuLe | date:'medium' }}</td>
+                    <td>{{ planification.objet }}</td>
+                    <td>{{ planification.faitLe | date:'medium' }}</td>
+                    <td>{{ planification.periodicite }}</td>
+                    <td>{{ planification.resultat }}</td>
+                    <td>
+                        {{ planification.user?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/planification', planification.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/planification', planification.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(planification)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

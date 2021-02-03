@@ -1,0 +1,29 @@
+{
+  "hospitalApp": {
+    "vaccinations": {
+      "home": {
+        "title": "Vaccinations",
+        "createLabel": "Create a new Vaccinations",
+        "createOrEditLabel": "Create or edit a Vaccinations",
+        "notFound": "No Vaccinations found"
+      },
+      "created": "A new Vaccinations is created with identifier {{ param }}",
+      "updated": "A Vaccinations is updated with identifier {{ param }}",
+      "deleted": "A Vaccinations is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vaccinations {{ id }}?"
+      },
+      "detail": {
+        "title": "Vaccinations"
+      },
+      "date": "Date",
+      "vaccin": "Vaccin",
+      "injection": "Injection",
+      "methode": "Methode",
+      "lot": "Lot",
+      "resultat": "Resultat",
+      "rappel": "Rappel",
+      "user": "User"
+    }
+  }
+}

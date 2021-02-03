@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalApp.antecedents.home.title">Antecedents</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-antecedents" [routerLink]="['/antecedents/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalApp.antecedents.home.createLabel">
+            Create a new Antecedents
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="antecedents?.length === 0">
+        <span jhiTranslate="hospitalApp.antecedents.home.notFound">No antecedents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="antecedents && antecedents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="medicaux"><span jhiTranslate="hospitalApp.antecedents.medicaux">Medicaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="chirurgicaux"><span jhiTranslate="hospitalApp.antecedents.chirurgicaux">Chirurgicaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="familiaux"><span jhiTranslate="hospitalApp.antecedents.familiaux">Familiaux</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="alergieIntolerance"><span jhiTranslate="hospitalApp.antecedents.alergieIntolerance">Alergie Intolerance</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="hospitalApp.antecedents.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let antecedents of antecedents ;trackBy: trackId">
+                    <td><a [routerLink]="['/antecedents', antecedents.id, 'view']">{{ antecedents.id }}</a></td>
+                    <td>{{ antecedents.medicaux }}</td>
+                    <td>{{ antecedents.chirurgicaux }}</td>
+                    <td>{{ antecedents.familiaux }}</td>
+                    <td>{{ antecedents.alergieIntolerance }}</td>
+                    <td>
+                        {{ antecedents.user?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/antecedents', antecedents.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/antecedents', antecedents.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(antecedents)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

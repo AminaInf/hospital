@@ -1,0 +1,26 @@
+{
+  "hospitalApp": {
+    "antecedents": {
+      "home": {
+        "title": "Antecedents",
+        "createLabel": "Create a new Antecedents",
+        "createOrEditLabel": "Create or edit a Antecedents",
+        "notFound": "No Antecedents found"
+      },
+      "created": "A new Antecedents is created with identifier {{ param }}",
+      "updated": "A Antecedents is updated with identifier {{ param }}",
+      "deleted": "A Antecedents is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Antecedents {{ id }}?"
+      },
+      "detail": {
+        "title": "Antecedents"
+      },
+      "medicaux": "Medicaux",
+      "chirurgicaux": "Chirurgicaux",
+      "familiaux": "Familiaux",
+      "alergieIntolerance": "Alergie Intolerance",
+      "user": "User"
+    }
+  }
+}
