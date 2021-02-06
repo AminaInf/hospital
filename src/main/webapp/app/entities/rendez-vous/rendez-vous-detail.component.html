@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="rendezVous">
+            <h2><span jhiTranslate="hospitalApp.rendezVous.detail.title">Rendez Vous</span> {{ rendezVous.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.rendezVous.nom">Nom</span></dt>
+                <dd>
+                    <span>{{ rendezVous.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.prenom">Prenom</span></dt>
+                <dd>
+                    <span>{{ rendezVous.prenom }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.age">Age</span></dt>
+                <dd>
+                    <span>{{ rendezVous.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.cni">Cni</span></dt>
+                <dd>
+                    <span>{{ rendezVous.cni }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.telephone">Telephone</span></dt>
+                <dd>
+                    <span>{{ rendezVous.telephone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.date">Date</span></dt>
+                <dd>
+                    <span>{{ rendezVous.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.heure">Heure</span></dt>
+                <dd>
+                    <span>{{ rendezVous.heure }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.user">User</span></dt>
+                <dd>
+                    {{ rendezVous.user?.id }}
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.rendezVous.departement">Departement</span></dt>
+                <dd>
+                    <div *ngIf="rendezVous.departement">
+                        <a [routerLink]="['/departement', rendezVous.departement?.id, 'view']">{{ rendezVous.departement?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/rendez-vous', rendezVous.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

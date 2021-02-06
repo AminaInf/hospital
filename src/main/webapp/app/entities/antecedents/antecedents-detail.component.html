@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="antecedents">
+            <h2><span jhiTranslate="hospitalApp.antecedents.detail.title">Antecedents</span> {{ antecedents.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.antecedents.medicaux">Medicaux</span></dt>
+                <dd>
+                    <span>{{ antecedents.medicaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.antecedents.chirurgicaux">Chirurgicaux</span></dt>
+                <dd>
+                    <span>{{ antecedents.chirurgicaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.antecedents.familiaux">Familiaux</span></dt>
+                <dd>
+                    <span>{{ antecedents.familiaux }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.antecedents.alergieIntolerance">Alergie Intolerance</span></dt>
+                <dd>
+                    <span>{{ antecedents.alergieIntolerance }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.antecedents.user">User</span></dt>
+                <dd>
+                    {{ antecedents.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/antecedents', antecedents.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

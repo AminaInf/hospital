@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalApp.examensBiologiques.home.title">Examens Biologiques</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-examens-biologiques" [routerLink]="['/examens-biologiques/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalApp.examensBiologiques.home.createLabel">
+            Create a new Examens Biologiques
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="examensBiologiques?.length === 0">
+        <span jhiTranslate="hospitalApp.examensBiologiques.home.notFound">No examensBiologiques found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="examensBiologiques && examensBiologiques.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.examensBiologiques.date">Date</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.examensBiologiques.texte">Texte</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalApp.examensBiologiques.user">User</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let examensBiologiques of examensBiologiques ;trackBy: trackId">
+                    <td><a [routerLink]="['/examens-biologiques', examensBiologiques.id, 'view']">{{ examensBiologiques.id }}</a></td>
+                    <td>{{ examensBiologiques.date | date:'medium' }}</td>
+                    <td>{{ examensBiologiques.texte }}</td>
+                    <td>
+                        {{ examensBiologiques.user?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/examens-biologiques', examensBiologiques.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/examens-biologiques', examensBiologiques.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(examensBiologiques)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

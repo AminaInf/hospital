@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="vaccinations">
+            <h2><span jhiTranslate="hospitalApp.vaccinations.detail.title">Vaccinations</span> {{ vaccinations.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.vaccinations.date">Date</span></dt>
+                <dd>
+                    <span>{{ vaccinations.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.vaccin">Vaccin</span></dt>
+                <dd>
+                    <span>{{ vaccinations.vaccin }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.injection">Injection</span></dt>
+                <dd>
+                    <span>{{ vaccinations.injection }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.methode">Methode</span></dt>
+                <dd>
+                    <span>{{ vaccinations.methode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.lot">Lot</span></dt>
+                <dd>
+                    <span>{{ vaccinations.lot }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.resultat">Resultat</span></dt>
+                <dd>
+                    <span>{{ vaccinations.resultat }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.rappel">Rappel</span></dt>
+                <dd>
+                    <span>{{ vaccinations.rappel }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.vaccinations.user">User</span></dt>
+                <dd>
+                    {{ vaccinations.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/vaccinations', vaccinations.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

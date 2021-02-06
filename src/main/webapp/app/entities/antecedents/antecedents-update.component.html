@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-antecedents-heading" jhiTranslate="hospitalApp.antecedents.home.createOrEditLabel">Create or edit a Antecedents</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalApp.antecedents.medicaux" for="field_medicaux">Medicaux</label>
+                    <input type="text" class="form-control" name="medicaux" id="field_medicaux"
+                           formControlName="medicaux"/>
+                    <div *ngIf="editForm.get('medicaux')!.invalid && (editForm.get('medicaux')!.dirty || editForm.get('medicaux')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('medicaux')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalApp.antecedents.chirurgicaux" for="field_chirurgicaux">Chirurgicaux</label>
+                    <input type="text" class="form-control" name="chirurgicaux" id="field_chirurgicaux"
+                           formControlName="chirurgicaux"/>
+                    <div *ngIf="editForm.get('chirurgicaux')!.invalid && (editForm.get('chirurgicaux')!.dirty || editForm.get('chirurgicaux')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('chirurgicaux')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalApp.antecedents.familiaux" for="field_familiaux">Familiaux</label>
+                    <input type="text" class="form-control" name="familiaux" id="field_familiaux"
+                           formControlName="familiaux"/>
+                    <div *ngIf="editForm.get('familiaux')!.invalid && (editForm.get('familiaux')!.dirty || editForm.get('familiaux')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('familiaux')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalApp.antecedents.alergieIntolerance" for="field_alergieIntolerance">Alergie Intolerance</label>
+                    <input type="text" class="form-control" name="alergieIntolerance" id="field_alergieIntolerance"
+                           formControlName="alergieIntolerance"/>
+                    <div *ngIf="editForm.get('alergieIntolerance')!.invalid && (editForm.get('alergieIntolerance')!.dirty || editForm.get('alergieIntolerance')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('alergieIntolerance')?.errors?.minlength" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalApp.antecedents.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

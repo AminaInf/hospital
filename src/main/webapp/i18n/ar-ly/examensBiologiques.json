@@ -1,0 +1,24 @@
+{
+  "hospitalApp": {
+    "examensBiologiques": {
+      "home": {
+        "title": "Examens Biologiques",
+        "createLabel": "Create a new Examens Biologiques",
+        "createOrEditLabel": "Create or edit a Examens Biologiques",
+        "notFound": "No Examens Biologiques found"
+      },
+      "created": "A new Examens Biologiques is created with identifier {{ param }}",
+      "updated": "A Examens Biologiques is updated with identifier {{ param }}",
+      "deleted": "A Examens Biologiques is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Examens Biologiques {{ id }}?"
+      },
+      "detail": {
+        "title": "Examens Biologiques"
+      },
+      "date": "Date",
+      "texte": "Texte",
+      "user": "User"
+    }
+  }
+}

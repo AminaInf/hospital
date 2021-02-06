@@ -1,0 +1,25 @@
+{
+  "hospitalApp": {
+    "ordonnances": {
+      "home": {
+        "title": "Ordonnances",
+        "createLabel": "Créer un nouveau Ordonnances",
+        "createOrEditLabel": "Créer ou éditer un Ordonnances",
+        "notFound": "Aucun Ordonnances trouvé"
+      },
+      "created": "Un nouveau Ordonnances a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Ordonnances avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Ordonnances avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Ordonnances {{ id }} ?"
+      },
+      "detail": {
+        "title": "Ordonnances"
+      },
+      "date": "Date",
+      "categorie": "Categorie",
+      "prescription": "Prescription",
+      "user": "User"
+    }
+  }
+}

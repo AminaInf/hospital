@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="historiqueConsultations">
+            <h2><span jhiTranslate="hospitalApp.historiqueConsultations.detail.title">Historique Consultations</span> {{ historiqueConsultations.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.date">Date</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.acte">Acte</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.acte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.motif">Motif</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.motif }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.taille">Taille</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.taille }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.poids">Poids</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.poids }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.ta">Ta</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.ta }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.pouls">Pouls</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.pouls }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.observation">Observation</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.observation }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.at">At</span></dt>
+                <dd>
+                    <span>{{ historiqueConsultations.at }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.historiqueConsultations.user">User</span></dt>
+                <dd>
+                    {{ historiqueConsultations.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/historique-consultations', historiqueConsultations.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

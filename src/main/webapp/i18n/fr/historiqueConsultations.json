@@ -1,0 +1,31 @@
+{
+  "hospitalApp": {
+    "historiqueConsultations": {
+      "home": {
+        "title": "HistoriqueConsultations",
+        "createLabel": "Créer un nouveau Historique Consultations",
+        "createOrEditLabel": "Créer ou éditer un Historique Consultations",
+        "notFound": "Aucun Historique Consultations trouvé"
+      },
+      "created": "Un nouveau Historique Consultations a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Historique Consultations avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Historique Consultations avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Historique Consultations {{ id }} ?"
+      },
+      "detail": {
+        "title": "Historique Consultations"
+      },
+      "date": "Date",
+      "acte": "Acte",
+      "motif": "Motif",
+      "taille": "Taille",
+      "poids": "Poids",
+      "ta": "Ta",
+      "pouls": "Pouls",
+      "observation": "Observation",
+      "at": "At",
+      "user": "User"
+    }
+  }
+}

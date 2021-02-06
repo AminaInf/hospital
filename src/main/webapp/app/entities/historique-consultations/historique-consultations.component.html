@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalApp.historiqueConsultations.home.title">Historique Consultations</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-historique-consultations" [routerLink]="['/historique-consultations/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalApp.historiqueConsultations.home.createLabel">
+            Create a new Historique Consultations
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="historiqueConsultations?.length === 0">
+        <span jhiTranslate="hospitalApp.historiqueConsultations.home.notFound">No historiqueConsultations found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="historiqueConsultations && historiqueConsultations.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="hospitalApp.historiqueConsultations.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="acte"><span jhiTranslate="hospitalApp.historiqueConsultations.acte">Acte</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="motif"><span jhiTranslate="hospitalApp.historiqueConsultations.motif">Motif</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="taille"><span jhiTranslate="hospitalApp.historiqueConsultations.taille">Taille</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="poids"><span jhiTranslate="hospitalApp.historiqueConsultations.poids">Poids</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="ta"><span jhiTranslate="hospitalApp.historiqueConsultations.ta">Ta</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="pouls"><span jhiTranslate="hospitalApp.historiqueConsultations.pouls">Pouls</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="observation"><span jhiTranslate="hospitalApp.historiqueConsultations.observation">Observation</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="at"><span jhiTranslate="hospitalApp.historiqueConsultations.at">At</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="hospitalApp.historiqueConsultations.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let historiqueConsultations of historiqueConsultations ;trackBy: trackId">
+                    <td><a [routerLink]="['/historique-consultations', historiqueConsultations.id, 'view']">{{ historiqueConsultations.id }}</a></td>
+                    <td>{{ historiqueConsultations.date | date:'medium' }}</td>
+                    <td>{{ historiqueConsultations.acte }}</td>
+                    <td>{{ historiqueConsultations.motif }}</td>
+                    <td>{{ historiqueConsultations.taille }}</td>
+                    <td>{{ historiqueConsultations.poids }}</td>
+                    <td>{{ historiqueConsultations.ta }}</td>
+                    <td>{{ historiqueConsultations.pouls }}</td>
+                    <td>{{ historiqueConsultations.observation }}</td>
+                    <td>{{ historiqueConsultations.at }}</td>
+                    <td>
+                        {{ historiqueConsultations.user?.id }}
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/historique-consultations', historiqueConsultations.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/historique-consultations', historiqueConsultations.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(historiqueConsultations)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

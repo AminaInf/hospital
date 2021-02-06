@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="examensBiologiques">
+            <h2><span jhiTranslate="hospitalApp.examensBiologiques.detail.title">Examens Biologiques</span> {{ examensBiologiques.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.examensBiologiques.date">Date</span></dt>
+                <dd>
+                    <span>{{ examensBiologiques.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.examensBiologiques.texte">Texte</span></dt>
+                <dd>
+                    <span>{{ examensBiologiques.texte }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.examensBiologiques.user">User</span></dt>
+                <dd>
+                    {{ examensBiologiques.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/examens-biologiques', examensBiologiques.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

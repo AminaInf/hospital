@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordonnances">
+            <h2><span jhiTranslate="hospitalApp.ordonnances.detail.title">Ordonnances</span> {{ ordonnances.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalApp.ordonnances.date">Date</span></dt>
+                <dd>
+                    <span>{{ ordonnances.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.ordonnances.categorie">Categorie</span></dt>
+                <dd>
+                    <span>{{ ordonnances.categorie }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.ordonnances.prescription">Prescription</span></dt>
+                <dd>
+                    <span>{{ ordonnances.prescription }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalApp.ordonnances.user">User</span></dt>
+                <dd>
+                    {{ ordonnances.user?.id }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordonnances', ordonnances.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
