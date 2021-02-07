@@ -1,0 +1,57 @@
+{
+  "name": "Antecedents",
+  "fields": [
+    {
+      "fieldName": "medicaux",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "minlength"
+      ],
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "chirurgicaux",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "minlength"
+      ],
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "familiaux",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "minlength"
+      ],
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "alergieIntolerance",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "minlength"
+      ],
+      "fieldValidateRulesMinlength": "2"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "antecedents",
+      "relationshipName": "user",
+      "otherEntityField": "email"
+    }
+  ],
+  "changelogDate": "20210206231512",
+  "entityTableName": "antecedents",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

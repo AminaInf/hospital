@@ -24,7 +24,7 @@ describe('Service Tests', () => {
       httpMock = injector.get(HttpTestingController);
       currentDate = moment();
 
-      elemDefault = new RendezVous(0, 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', currentDate, 'AAAAAAA');
+      elemDefault = new RendezVous(0, 'AAAAAAA', 'AAAAAAA', 0, 'AAAAAAA', 'AAAAAAA', currentDate);
     });
 
     describe('Service methods', () => {
@@ -75,7 +75,6 @@ describe('Service Tests', () => {
             cni: 'BBBBBB',
             telephone: 'BBBBBB',
             date: currentDate.format(DATE_TIME_FORMAT),
-            heure: 'BBBBBB',
           },
           elemDefault
         );
@@ -103,7 +102,6 @@ describe('Service Tests', () => {
             cni: 'BBBBBB',
             telephone: 'BBBBBB',
             date: currentDate.format(DATE_TIME_FORMAT),
-            heure: 'BBBBBB',
           },
           elemDefault
         );

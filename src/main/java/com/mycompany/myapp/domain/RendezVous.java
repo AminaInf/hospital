@@ -50,10 +50,6 @@ public class RendezVous implements Serializable {
     @Column(name = "date", nullable = false)
     private Instant date;
 
-    @NotNull
-    @Column(name = "heure", nullable = false)
-    private String heure;
-
     @ManyToOne
     @JsonIgnoreProperties(value = "rendezVous", allowSetters = true)
     private User user;
@@ -149,19 +145,6 @@ public class RendezVous implements Serializable {
         this.date = date;
     }
 
-    public String getHeure() {
-        return heure;
-    }
-
-    public RendezVous heure(String heure) {
-        this.heure = heure;
-        return this;
-    }
-
-    public void setHeure(String heure) {
-        this.heure = heure;
-    }
-
     public User getUser() {
         return user;
     }
@@ -216,7 +199,6 @@ public class RendezVous implements Serializable {
             ", cni='" + getCni() + "'" +
             ", telephone='" + getTelephone() + "'" +
             ", date='" + getDate() + "'" +
-            ", heure='" + getHeure() + "'" +
             "}";
     }
 }

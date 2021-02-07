@@ -103,22 +103,10 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hospitalApp.rendezVous.heure" for="field_heure">Heure</label>
-                    <input type="text" class="form-control" name="heure" id="field_heure"
-                           formControlName="heure"/>
-                    <div *ngIf="editForm.get('heure')!.invalid && (editForm.get('heure')!.dirty || editForm.get('heure')!.touched)">
-                        <small class="form-text text-danger"
-                               *ngIf="editForm.get('heure')?.errors?.required" jhiTranslate="entity.validation.required">
-                        This field is required.
-                        </small>
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="hospitalApp.rendezVous.user" for="field_user">User</label>
                     <select class="form-control" id="field_user" name="user" formControlName="user">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.id }}</option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.email }}</option>
                     </select>
                 </div>
 
@@ -126,7 +114,7 @@
                     <label class="form-control-label" jhiTranslate="hospitalApp.rendezVous.departement" for="field_departement">Departement</label>
                     <select class="form-control" id="field_departement" name="departement" formControlName="departement">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.id }}</option>
+                        <option [ngValue]="departementOption.id === editForm.get('departement')!.value?.id ? editForm.get('departement')!.value : departementOption" *ngFor="let departementOption of departements; trackBy: trackById">{{ departementOption.libelle }}</option>
                     </select>
                 </div>
             </div>

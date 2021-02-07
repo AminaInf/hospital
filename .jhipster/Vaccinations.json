@@ -1,0 +1,53 @@
+{
+  "name": "Vaccinations",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "vaccin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "injection",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "methode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lot",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resultat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rappel",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "vaccinations",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210206231812",
+  "entityTableName": "vaccinations",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

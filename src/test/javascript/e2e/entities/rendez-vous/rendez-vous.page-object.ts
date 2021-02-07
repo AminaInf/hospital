@@ -35,7 +35,6 @@ export class RendezVousUpdatePage {
   cniInput = element(by.id('field_cni'));
   telephoneInput = element(by.id('field_telephone'));
   dateInput = element(by.id('field_date'));
-  heureInput = element(by.id('field_heure'));
 
   userSelect = element(by.id('field_user'));
   departementSelect = element(by.id('field_departement'));
@@ -90,14 +89,6 @@ export class RendezVousUpdatePage {
 
   async getDateInput(): Promise<string> {
     return await this.dateInput.getAttribute('value');
-  }
-
-  async setHeureInput(heure: string): Promise<void> {
-    await this.heureInput.sendKeys(heure);
-  }
-
-  async getHeureInput(): Promise<string> {
-    return await this.heureInput.getAttribute('value');
   }
 
   async userSelectLastOption(): Promise<void> {

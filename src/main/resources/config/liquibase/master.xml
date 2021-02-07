@@ -22,6 +22,14 @@
     <include file="config/liquibase/changelog/20210203104210_added_entity_Vaccinations.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210203104310_added_entity_ExamensBiologiques.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210203104410_added_entity_Planification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231312_added_entity_RendezVous.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231412_added_entity_Departement.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231512_added_entity_Antecedents.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231612_added_entity_HistoriqueConsultations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231712_added_entity_Ordonnances.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231812_added_entity_Vaccinations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231912_added_entity_ExamensBiologiques.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206232012_added_entity_Planification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20210203103710_added_entity_constraints_RendezVous.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210203103910_added_entity_constraints_Antecedents.xml" relativeToChangelogFile="false"/>
@@ -30,6 +38,13 @@
     <include file="config/liquibase/changelog/20210203104210_added_entity_constraints_Vaccinations.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210203104310_added_entity_constraints_ExamensBiologiques.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20210203104410_added_entity_constraints_Planification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231312_added_entity_constraints_RendezVous.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231512_added_entity_constraints_Antecedents.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231612_added_entity_constraints_HistoriqueConsultations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231712_added_entity_constraints_Ordonnances.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231812_added_entity_constraints_Vaccinations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206231912_added_entity_constraints_ExamensBiologiques.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210206232012_added_entity_constraints_Planification.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

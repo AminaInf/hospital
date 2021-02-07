@@ -49,9 +49,6 @@ public class RendezVousResourceIT {
     private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
-    private static final String DEFAULT_HEURE = "AAAAAAAAAA";
-    private static final String UPDATED_HEURE = "BBBBBBBBBB";
-
     @Autowired
     private RendezVousRepository rendezVousRepository;
 
@@ -76,8 +73,7 @@ public class RendezVousResourceIT {
             .age(DEFAULT_AGE)
             .cni(DEFAULT_CNI)
             .telephone(DEFAULT_TELEPHONE)
-            .date(DEFAULT_DATE)
-            .heure(DEFAULT_HEURE);
+            .date(DEFAULT_DATE);
         return rendezVous;
     }
     /**
@@ -93,8 +89,7 @@ public class RendezVousResourceIT {
             .age(UPDATED_AGE)
             .cni(UPDATED_CNI)
             .telephone(UPDATED_TELEPHONE)
-            .date(UPDATED_DATE)
-            .heure(UPDATED_HEURE);
+            .date(UPDATED_DATE);
         return rendezVous;
     }
 
@@ -123,7 +118,6 @@ public class RendezVousResourceIT {
         assertThat(testRendezVous.getCni()).isEqualTo(DEFAULT_CNI);
         assertThat(testRendezVous.getTelephone()).isEqualTo(DEFAULT_TELEPHONE);
         assertThat(testRendezVous.getDate()).isEqualTo(DEFAULT_DATE);
-        assertThat(testRendezVous.getHeure()).isEqualTo(DEFAULT_HEURE);
     }
 
     @Test
@@ -243,25 +237,6 @@ public class RendezVousResourceIT {
 
     @Test
     @Transactional
-    public void checkHeureIsRequired() throws Exception {
-        int databaseSizeBeforeTest = rendezVousRepository.findAll().size();
-        // set the field null
-        rendezVous.setHeure(null);
-
-        // Create the RendezVous, which fails.
-
-
-        restRendezVousMockMvc.perform(post("/api/rendez-vous")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(TestUtil.convertObjectToJsonBytes(rendezVous)))
-            .andExpect(status().isBadRequest());
-
-        List<RendezVous> rendezVousList = rendezVousRepository.findAll();
-        assertThat(rendezVousList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllRendezVous() throws Exception {
         // Initialize the database
         rendezVousRepository.saveAndFlush(rendezVous);
@@ -276,8 +251,7 @@ public class RendezVousResourceIT {
             .andExpect(jsonPath("$.[*].age").value(hasItem(DEFAULT_AGE)))
             .andExpect(jsonPath("$.[*].cni").value(hasItem(DEFAULT_CNI)))
             .andExpect(jsonPath("$.[*].telephone").value(hasItem(DEFAULT_TELEPHONE)))
-            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].heure").value(hasItem(DEFAULT_HEURE)));
+            .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
     }
     
     @Test
@@ -296,8 +270,7 @@ public class RendezVousResourceIT {
             .andExpect(jsonPath("$.age").value(DEFAULT_AGE))
             .andExpect(jsonPath("$.cni").value(DEFAULT_CNI))
             .andExpect(jsonPath("$.telephone").value(DEFAULT_TELEPHONE))
-            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.heure").value(DEFAULT_HEURE));
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
     }
     @Test
     @Transactional
@@ -325,8 +298,7 @@ public class RendezVousResourceIT {
             .age(UPDATED_AGE)
             .cni(UPDATED_CNI)
             .telephone(UPDATED_TELEPHONE)
-            .date(UPDATED_DATE)
-            .heure(UPDATED_HEURE);
+            .date(UPDATED_DATE);
 
         restRendezVousMockMvc.perform(put("/api/rendez-vous")
             .contentType(MediaType.APPLICATION_JSON)
@@ -343,7 +315,6 @@ public class RendezVousResourceIT {
         assertThat(testRendezVous.getCni()).isEqualTo(UPDATED_CNI);
         assertThat(testRendezVous.getTelephone()).isEqualTo(UPDATED_TELEPHONE);
         assertThat(testRendezVous.getDate()).isEqualTo(UPDATED_DATE);
-        assertThat(testRendezVous.getHeure()).isEqualTo(UPDATED_HEURE);
     }
 
     @Test

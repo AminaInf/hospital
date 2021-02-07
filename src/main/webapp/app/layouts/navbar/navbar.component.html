@@ -1,6 +1,35 @@
+<!-- <header id="header" class="fixed-top">
+   
+  </header> -->
 <nav class="navbar  navbar-expand-md ">
-    
-  
+    <span class="logo-img"></span>
+      <h1 class="logo me-auto"><a href="index.html">Hospital</a></h1>
+   <div class="container d-flex align-items-center">
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a class="nav-link" href="index.html" (click)="collapseNavbar()">
+                    <span>
+                        <fa-icon icon="home"></fa-icon>
+                        <span jhiTranslate="global.menu.home">Home</span>
+                    </span>
+                </a>
+            </li>
+           <li>
+                        <a class="dropdown-item" routerLink="departement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                            
+                            <span jhiTranslate="global.menu.entities.departement">Departement</span>
+                        </a>
+                    </li>
+          <li><a href="#about">A propos</a></li>
+          <li><a href="#contact">Contact</a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <a href="#appointment" class="appointment-btn scrollto" routerLink="rendez-vous" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">Prendre Rendez-Vous</a>
+ 
+    </div>
    <!--  <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
         <span jhiTranslate="global.title" class="navbar-title">Hospital</span> 
@@ -23,60 +52,51 @@
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <fa-icon icon="th-list"></fa-icon>
-                        <span jhiTranslate="global.menu.entities.main">
-                            Entities
+                        
+                            Dossiers
                         </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
-                    <li>
-                        <a class="dropdown-item" routerLink="rendez-vous" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.rendezVous">Rendez Vous</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="departement" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                            <span jhiTranslate="global.menu.entities.departement">Departement</span>
-                        </a>
-                    </li>
+                    
                     <li>
                         <a class="dropdown-item" routerLink="antecedents" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.antecedents">Antecedents</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="historique-consultations" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                           
                             <span jhiTranslate="global.menu.entities.historiqueConsultations">Historique Consultations</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="ordonnances" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.ordonnances">Ordonnances</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="vaccinations" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.vaccinations">Vaccinations</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="examens-biologiques" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.examensBiologiques">Examens Biologiques</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="planification" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                            
                             <span jhiTranslate="global.menu.entities.planification">Planification</span>
                         </a>
                     </li>
+                    
+                   
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
@@ -196,31 +216,4 @@
 </nav>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center">
-<span class="logo-img"></span>
-      <h1 class="logo me-auto"><a href="index.html">Hospital</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                <a class="nav-link" href="index.html" (click)="collapseNavbar()">
-                    <span>
-                        <fa-icon icon="home"></fa-icon>
-                        <span jhiTranslate="global.menu.home">Home</span>
-                    </span>
-                </a>
-            </li>
-          
-          <li><a href="#about">A propos</a></li>
-          <li><a href="#contact">Contact</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="#appointment" class="appointment-btn scrollto">Prendre Rendez-Vous</a>
-
-    </div>
-  </header>
+  

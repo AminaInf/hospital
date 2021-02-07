@@ -5,11 +5,11 @@ entity RendezVous {
  cni String required minlength(13) maxlength(13),
  telephone String,
  date Instant required,
- heure String required,
+ 
 }
 
 entity Departement {
- libelle String required minlength(2)
+ libelle String required minlength(2),
 }
 
 entity Antecedents {
@@ -61,10 +61,10 @@ entity Planification {
 }
 
 relationship ManyToOne {
-  RendezVous {user} to User
-  RendezVous{departement} to Departement
+  RendezVous {user(email)} to User
+  RendezVous{departement(libelle)} to Departement
   HistoriqueConsultations {user} to User
-  Antecedents {user} to User
+  Antecedents {user(email)} to User
   Ordonnances {user} to User
   Vaccinations {user} to User
   ExamensBiologiques {user} to User

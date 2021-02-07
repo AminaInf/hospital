@@ -29,9 +29,8 @@
                     <th scope="col"  jhiSortBy="cni"><span jhiTranslate="hospitalApp.rendezVous.cni">Cni</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="telephone"><span jhiTranslate="hospitalApp.rendezVous.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="date"><span jhiTranslate="hospitalApp.rendezVous.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="heure"><span jhiTranslate="hospitalApp.rendezVous.heure">Heure</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="hospitalApp.rendezVous.user">User</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="departement.id"><span jhiTranslate="hospitalApp.rendezVous.departement">Departement</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.email"><span jhiTranslate="hospitalApp.rendezVous.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="departement.libelle"><span jhiTranslate="hospitalApp.rendezVous.departement">Departement</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -44,13 +43,12 @@
                     <td>{{ rendezVous.cni }}</td>
                     <td>{{ rendezVous.telephone }}</td>
                     <td>{{ rendezVous.date | date:'medium' }}</td>
-                    <td>{{ rendezVous.heure }}</td>
                     <td>
-                        {{ rendezVous.user?.id }}
+                        {{ rendezVous.user?.email }}
                     </td>
                     <td>
                         <div *ngIf="rendezVous.departement">
-                            <a [routerLink]="['/departement', rendezVous.departement?.id, 'view']" >{{ rendezVous.departement?.id }}</a>
+                            <a [routerLink]="['/departement', rendezVous.departement?.id, 'view']" >{{ rendezVous.departement?.libelle }}</a>
                         </div>
                     </td>
                     <td class="text-right">

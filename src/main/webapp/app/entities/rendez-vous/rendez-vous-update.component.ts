@@ -33,7 +33,6 @@ export class RendezVousUpdateComponent implements OnInit {
     cni: [null, [Validators.required, Validators.minLength(13), Validators.maxLength(13)]],
     telephone: [],
     date: [null, [Validators.required]],
-    heure: [null, [Validators.required]],
     user: [],
     departement: [],
   });
@@ -70,7 +69,6 @@ export class RendezVousUpdateComponent implements OnInit {
       cni: rendezVous.cni,
       telephone: rendezVous.telephone,
       date: rendezVous.date ? rendezVous.date.format(DATE_TIME_FORMAT) : null,
-      heure: rendezVous.heure,
       user: rendezVous.user,
       departement: rendezVous.departement,
     });
@@ -100,7 +98,6 @@ export class RendezVousUpdateComponent implements OnInit {
       cni: this.editForm.get(['cni'])!.value,
       telephone: this.editForm.get(['telephone'])!.value,
       date: this.editForm.get(['date'])!.value ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
-      heure: this.editForm.get(['heure'])!.value,
       user: this.editForm.get(['user'])!.value,
       departement: this.editForm.get(['departement'])!.value,
     };

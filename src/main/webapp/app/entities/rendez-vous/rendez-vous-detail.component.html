@@ -32,18 +32,14 @@
                 <dd>
                     <span>{{ rendezVous.date }}</span>
                 </dd>
-                <dt><span jhiTranslate="hospitalApp.rendezVous.heure">Heure</span></dt>
-                <dd>
-                    <span>{{ rendezVous.heure }}</span>
-                </dd>
                 <dt><span jhiTranslate="hospitalApp.rendezVous.user">User</span></dt>
                 <dd>
-                    {{ rendezVous.user?.id }}
+                    {{ rendezVous.user?.email }}
                 </dd>
                 <dt><span jhiTranslate="hospitalApp.rendezVous.departement">Departement</span></dt>
                 <dd>
                     <div *ngIf="rendezVous.departement">
-                        <a [routerLink]="['/departement', rendezVous.departement?.id, 'view']">{{ rendezVous.departement?.id }}</a>
+                        <a [routerLink]="['/departement', rendezVous.departement?.id, 'view']">{{ rendezVous.departement?.libelle }}</a>
                     </div>
                 </dd>
             </dl>

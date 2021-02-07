@@ -27,7 +27,7 @@
                     <th scope="col"  jhiSortBy="chirurgicaux"><span jhiTranslate="hospitalApp.antecedents.chirurgicaux">Chirurgicaux</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="familiaux"><span jhiTranslate="hospitalApp.antecedents.familiaux">Familiaux</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"  jhiSortBy="alergieIntolerance"><span jhiTranslate="hospitalApp.antecedents.alergieIntolerance">Alergie Intolerance</span> <fa-icon icon="sort"></fa-icon></th>
-                    <th scope="col"  jhiSortBy="user.id"><span jhiTranslate="hospitalApp.antecedents.user">User</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="user.email"><span jhiTranslate="hospitalApp.antecedents.user">User</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -39,7 +39,7 @@
                     <td>{{ antecedents.familiaux }}</td>
                     <td>{{ antecedents.alergieIntolerance }}</td>
                     <td>
-                        {{ antecedents.user?.id }}
+                        {{ antecedents.user?.email }}
                     </td>
                     <td class="text-right">
                         <div class="btn-group">

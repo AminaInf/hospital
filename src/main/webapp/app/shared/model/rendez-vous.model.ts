@@ -10,7 +10,6 @@ export interface IRendezVous {
   cni?: string;
   telephone?: string;
   date?: Moment;
-  heure?: string;
   user?: IUser;
   departement?: IDepartement;
 }
@@ -24,7 +23,6 @@ export class RendezVous implements IRendezVous {
     public cni?: string,
     public telephone?: string,
     public date?: Moment,
-    public heure?: string,
     public user?: IUser,
     public departement?: IDepartement
   ) {}

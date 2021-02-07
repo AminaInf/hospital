@@ -47,7 +47,6 @@ describe('RendezVous e2e test', () => {
       rendezVousUpdatePage.setCniInput('cni'),
       rendezVousUpdatePage.setTelephoneInput('telephone'),
       rendezVousUpdatePage.setDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
-      rendezVousUpdatePage.setHeureInput('heure'),
       rendezVousUpdatePage.userSelectLastOption(),
       rendezVousUpdatePage.departementSelectLastOption(),
     ]);
@@ -58,7 +57,6 @@ describe('RendezVous e2e test', () => {
     expect(await rendezVousUpdatePage.getCniInput()).to.eq('cni', 'Expected Cni value to be equals to cni');
     expect(await rendezVousUpdatePage.getTelephoneInput()).to.eq('telephone', 'Expected Telephone value to be equals to telephone');
     expect(await rendezVousUpdatePage.getDateInput()).to.contain('2001-01-01T02:30', 'Expected date value to be equals to 2000-12-31');
-    expect(await rendezVousUpdatePage.getHeureInput()).to.eq('heure', 'Expected Heure value to be equals to heure');
 
     await rendezVousUpdatePage.save();
     expect(await rendezVousUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

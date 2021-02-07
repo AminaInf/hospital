@@ -1,0 +1,45 @@
+{
+  "name": "Planification",
+  "fields": [
+    {
+      "fieldName": "prevuLe",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "objet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "faitLe",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "periodicite",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resultat",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "planification",
+      "relationshipName": "user",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210206232012",
+  "entityTableName": "planification",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
